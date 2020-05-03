@@ -1,0 +1,25 @@
+spring:
+   application:
+      name: gateway-server
+server:   
+   port: 8762
+eureka:
+   client:
+      fetchRegistry: true
+      serviceUrl:
+         defaultZone: https://evening-sierra-88287.herokuapp.com/eureka/
+zuul:
+   sensitiveHeaders: Cookie,Set-Cookie
+   routes:
+      oauth:
+         path: /victor/**
+         url: https://stormy-wave-33097.herokuapp.com/
+ribbon:
+   eager-load:
+      enabled: false
+
+managment:
+   endpoints:
+      web:
+         exposure:
+            include: '*'
